@@ -1,0 +1,12 @@
+{
+    "Acero al Carbono (A36)": {
+        "rho": 7850,
+        "cp": 470,
+        "e": 0.75
+    },
+    "Acero Inoxidable (304)": {
+        "rho": 8000,
+        "cp": 500,
+        "e": 0.14
+    }
+}

@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>889</width>
+    <height>581</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Horno Mufla UMSA</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,5,1">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,5">
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>Conexión</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QPushButton" name="btn_conectar">
+             <property name="text">
+              <string>Conectar</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Desconectado</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_5">
+          <property name="title">
+           <string>Temperaturas</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="1,2,1,2">
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Temp. Setpoint:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLCDNumber" name="lcd_setpoint"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Temp. Actual:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLCDNumber" name="lcd_tempActual"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,5">
+      <item>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="title">
+         <string>Ajustes</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <item>
+          <widget class="QTabWidget" name="tab_potenciaFija">
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="tab_setpoint">
+            <attribute name="title">
+             <string>Setpoint</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_9" stretch="2,1">
+             <item>
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap resource="../assets/resource.qrc">:/logo_mecatronica_inv.png</pixmap>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QGridLayout" name="gridLayout_3" columnstretch="1,1">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_6">
+                 <property name="text">
+                  <string>Potencia (%):</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QSpinBox" name="spin_setpoint">
+                 <property name="maximum">
+                  <number>1000</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_5">
+                 <property name="text">
+                  <string>Setpoin (ºC)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QProgressBar" name="bar_potenciaSetpoint">
+                 <property name="value">
+                  <number>24</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QPushButton" name="btn_iniciarSetpoint">
+                 <property name="text">
+                  <string>Iniciar</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QPushButton" name="btn_enviarSetpoint">
+                 <property name="text">
+                  <string>Enviar</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="tab_rampaMeseta">
+            <attribute name="title">
+             <string>Rampas y Mesetas</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <item>
+                <widget class="QPushButton" name="btn_agregar_etapa">
+                 <property name="text">
+                  <string>Añadir Perfil</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btn_eliminar_etapa">
+                 <property name="text">
+                  <string>Eliminar Fila</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btn_eliminar_perfil">
+                 <property name="text">
+                  <string>Eliminar Todo</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QTableWidget" name="tab_agregarPerfil">
+               <property name="editTriggers">
+                <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+               </property>
+               <property name="supportedDragActions">
+                <set>Qt::DropAction::IgnoreAction</set>
+               </property>
+               <column>
+                <property name="text">
+                 <string>Velocidad (ºC/min)</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Setpoint (ºC)</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Meseta (min)</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Masa (kg)</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Material</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+             <item>
+              <layout class="QGridLayout" name="gridLayout_6" columnstretch="1,0">
+               <item row="0" column="1">
+                <widget class="QProgressBar" name="bar_potenciaPerfil">
+                 <property name="value">
+                  <number>24</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QPushButton" name="btn_enviarPerfil">
+                 <property name="text">
+                  <string>Enviar</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_7">
+                 <property name="text">
+                  <string>Potencia (%):</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QPushButton" name="btn_iniciarPerfil">
+                 <property name="text">
+                  <string>Iniciar</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="tab">
+            <attribute name="title">
+             <string>Potencia Fija</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>Esta opcion envía una cantidad fija de
+potencia, por lo que no es recomendable
+enviar mas de 600 W, ya que el equipo
+podría llegar a mas de 1000 ºC.
+</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QGridLayout" name="gridLayout" columnstretch="1,1">
+               <item row="1" column="1">
+                <widget class="QProgressBar" name="bar_potenciaFija">
+                 <property name="value">
+                  <number>24</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_9">
+                 <property name="text">
+                  <string>Potencia (%):</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QPushButton" name="btn_iniciarPotenciaFija">
+                 <property name="text">
+                  <string>Iniciar</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QPushButton" name="btn_enviarPotenciaFija">
+                 <property name="text">
+                  <string>Enviar</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QSpinBox" name="spin_potenciaFija">
+                 <property name="maximum">
+                  <number>2500</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_10">
+                 <property name="text">
+                  <string>Potencia Set:</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_4">
+        <property name="title">
+         <string>Temperatura vs. Tiempo</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_10">
+         <item>
+          <widget class="PlotWidget" name="grafica" native="true"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string>Información</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <item>
+        <widget class="QPlainTextEdit" name="log_consola">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>889</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuHerramientas_2">
+    <property name="title">
+     <string>Herramientas</string>
+    </property>
+    <addaction name="action_ajustarPID"/>
+    <addaction name="actionAgregar_Material"/>
+   </widget>
+   <addaction name="menuHerramientas_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_abrirGrafico">
+   <property name="text">
+    <string>Abrir gráfico</string>
+   </property>
+  </action>
+  <action name="action_ExportarCSV">
+   <property name="text">
+    <string>Exportar gráfico CSV</string>
+   </property>
+  </action>
+  <action name="action_ExportarPNG">
+   <property name="text">
+    <string>Exportar Imagen PNG</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+  <action name="action_ajustarPID">
+   <property name="text">
+    <string>Ajustar constantes PID</string>
+   </property>
+  </action>
+  <action name="actionPrueba_Paso_en_Potencia">
+   <property name="text">
+    <string>Prueba Paso en Potencia</string>
+   </property>
+  </action>
+  <action name="action_salir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+  <action name="actionAgregar_Material">
+   <property name="text">
+    <string>Agregar Material</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlotWidget</class>
+   <extends>QWidget</extends>
+   <header>pyqtgraph</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../assets/resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

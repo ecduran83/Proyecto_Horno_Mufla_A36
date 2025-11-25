@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/">
+    <file>logo_mecatronica_inv.png</file>
+  </qresource>
+</RCC>
