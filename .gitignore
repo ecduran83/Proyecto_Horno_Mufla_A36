@@ -1,0 +1,16 @@
+# Ignorar archivos de compilación de Python
+__pycache__/
+*.py[cod]
+.venv
+venv/
+
+# Ignorar archivos de compilación de PlatformIO/C++
+.pio/
+.vscode/
+*.elf
+*.bin
+*.hex
+
+# Ignorar archivos temporales de sistema
+.DS_Store
+Thumbs.db
