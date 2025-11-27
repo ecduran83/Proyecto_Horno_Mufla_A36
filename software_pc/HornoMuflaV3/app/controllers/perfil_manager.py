@@ -4,6 +4,7 @@ from PySide6.QtCore import Signal, QObject
 from app.controllers.json_manager import JsonManager
 from app.models.graphing_tool import GraphingTool
 from app.controllers.temperature_cycles import TemperatureCycles
+from app.ui.ui_main_window import Ui_MainWindow
 
 class PerfilManager(QObject):
 
@@ -127,12 +128,14 @@ class PerfilManager(QObject):
                     self._commands.append([f'SET_RAMP:{date[0]}', f'SET_SP:{date[1]}',
                                            f'SET_SOAK:{date[2]}', 'SET_MODE:2'])
 
-    def send_command_profile(self):
+    def send_command_profile(self, wind:Ui_MainWindow):
         self._commands = []
         self.format_command_profile()
 
         if len(self._commands) > self._index_process:
             for com in self._commands[self._index_process]:
+                if 'SET_SP:' in com:
+                    wind.lcd_setpoint.display(int(com.split(':')[1]))
                 self._ser_op.send_command(com)
             self._index_process += 1
             if len(self._commands) > self._index_process:

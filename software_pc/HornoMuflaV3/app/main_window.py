@@ -1,6 +1,3 @@
-from PySide6.QtCore import QSize
-from PySide6.QtGui import QPixmap, Qt, QIcon
-
 from app.ui.ui_main_window import Ui_MainWindow
 from app.controllers.serial_operations import SerialOperations
 from app.controllers.heart_beat import HeartBeat
@@ -12,10 +9,7 @@ from app.controllers.pid_constants import PidConstants
 from app.controllers.add_materials import AddMaterials
 from app.controllers.add_materials import JsonManager
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QDialog, QSplashScreen
-import time
-import sys
-import os
+from PySide6.QtWidgets import QMainWindow, QMessageBox, QDialog
 
 class MainWindow(QMainWindow, Ui_MainWindow):
 
@@ -196,7 +190,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def btn_enviar_perfil_fn(self):
         t_amb = self.lcd_tempActual.value()
         self.pm.graphic_perfil(t_amb)
-        self.pm.send_command_profile()
+        self.pm.send_command_profile(self)
 
     def btn_iniciar_perfil_fn(self):
         if not self.fo.is_running:
@@ -285,46 +279,3 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def signal_json_save_fn(self):
         self.ciclos.cargar_perfiles()
-
-
-def actualizar_carga(mensaje, progreso):
-    # Muestra un texto sobre la imagen (Color blanco, alineación inferior)
-    splash.showMessage(f"{mensaje}...", Qt.AlignmentFlag.AlignBottom |
-                       Qt.AlignmentFlag.AlignCenter, Qt.GlobalColor.white)
-    # Mantiene la GUI viva mientras "cargamos"
-    app.processEvents()
-    # Simula tiempo de trabajo
-    time.sleep(0.5)
-
-def resource_path(relative_path):
-    try:
-        base_path = sys._MEIPASS
-    except Exception:
-        # Si falla, estamos en modo de desarrollo (script normal)
-        base_path = os.path.abspath(".")
-    print(os.path.join(base_path, relative_path))
-
-    return os.path.join(base_path, relative_path)
-
-if __name__ == '__main__':
-    app = QApplication.instance()
-    if app is None:
-        app = QApplication([])
-    imagen_splash = QPixmap(resource_path('assets/horno_inicio.PNG'))
-    nuevo_tamano = QSize(600, 400)
-    imagen_redimensionada = imagen_splash.scaled(
-        nuevo_tamano,
-        Qt.AspectRatioMode.KeepAspectRatio,
-        Qt.TransformationMode.SmoothTransformation
-    )
-    splash = QSplashScreen(imagen_redimensionada)
-    splash.show()
-    actualizar_carga("Cargando configuración", 25)
-    actualizar_carga("Verificando puertos COM", 50)
-    actualizar_carga("Iniciando motor gráfico", 75)
-    actualizar_carga("Listo", 100)
-    app.setWindowIcon(QIcon(resource_path('assets/icono_horno.ico')))
-    window = MainWindow()
-    window.show()
-    splash.finish(window)
-    app.exec()
