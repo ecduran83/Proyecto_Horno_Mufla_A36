@@ -13,12 +13,12 @@ El proyecto consiste en un horno de resistencia eléctrica controlado por un sis
 
 * **/firmware**: Código fuente C++ para el microcontrolador **ESP32** (PlatformIO). Implementa el sistema operativo **FreeRTOS** y el algoritmo de control **PID**.
 * **/software_pc**: Interfaz Gráfica de Usuario (GUI) desarrollada en **Python** con **PySide6**. Maneja el monitoreo, datalogging y programación de rampas.
-* **/simulacion**: Scripts de **MATLAB** para el "Gemelo Digital" del horno (Modelo de Diferencias Finitas) y sintonización de ganancias PID.
+* **/simulacion**: Scripts de **Pyhon** para el "modelado" del horno (Modelo de Diferencias Finitas) y sintonización de ganancias PID.
 * **/docs**: Esquemas eléctricos, diagramas de flujo y fotografías del prototipo.
 
 ## 🚀 Tecnologías Utilizadas
 * **Hardware:** ESP32, MAX31855 (Termopar K), SSR 25DA.
-* **Software:** Python 3.10, PySide6 (Qt), PlatformIO, MATLAB.
+* **Software:** Python 3.10, PySide6 (Qt), PlatformIO, Jupyter Notebook.
 * **Control:** PID Discreto en forma de velocidad, Modulación por tiempo (Time-Proportioning).
 
 ## ⚙️ Instalación y Uso
